@@ -8,15 +8,15 @@ angular.module('cursAngularUpcApp.recipes', [
 
 	$routeProvider
 		.when('/recipes', {
-			templateUrl: 'views/recipes.html',
-			controller: 'RecipesCtrl'
+			templateUrl: 'views/recipes.html'
 		})
-		.otherwise({
-			redirectTo: '/'
+		.when('/recipes/new', {
+			templateUrl: 'views/recipe-form.html',
+			controller: 'RecipeFormCtrl'
 		});
 })
 
-.controller('RecipesCtrl', function($scope) {
+.controller('RecipeFormCtrl', function($scope) {
 
 
 	$scope.formData = {
@@ -28,7 +28,7 @@ angular.module('cursAngularUpcApp.recipes', [
 			.push($scope.auxIngredient);
 
 		$scope.auxIngredient = '';
-	}
+	};
 
 	$scope.send = function(){
 		console.log($scope.formData);

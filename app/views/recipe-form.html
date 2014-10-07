@@ -1,0 +1,40 @@
+<div class="row">
+    <form name="newRecipe" class="col-md-12 col-lg-12">
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" id="name" ng-model="formData.name" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Descripció</label>
+        <textarea class="form-control" rows="3" ng-model="formData.description" required>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <div class="input-group">
+            <input class="form-control" ng-model="auxIngredient" type="text"
+      pattern=".{3,}">
+            <div class="input-group-addon" ng-click="auxIngredient && addIngredient()">
+                <span class="glyphicon glyphicon-plus"</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <ul class="list-inline">
+            <li ng-repeat="i in formData.ingredients">{{ i }}</li>
+        </ul>
+    </div>
+    <div class="form-group">
+        <label for="readyInTime">Temps d'elaboració</label>
+        <input class="form-control" type="number" min="1" ng-model="formData.readyInTime" required>
+    </div>
+    <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="formData.needsOven"> Necessita forn
+      </label>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" ng-disabled="!newRecipe.$valid" ng-click="send()">Submit</button>
+    </div>
+</form>
+</div>

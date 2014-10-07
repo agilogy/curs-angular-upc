@@ -1,9 +1,5 @@
 'use strict';
 
-(function(){
-	var a = 1;
-})
-
 angular.module('cursAngularUpcApp.home',[])
 
 .config(function($routeProvider) {
@@ -19,9 +15,11 @@ angular.module('cursAngularUpcApp.home',[])
 })
 
 .run(function(){
-	console.log('cursAngularUpcApp.home loaded....')
+	console.log('cursAngularUpcApp.home loaded....');
 })
 
-.controller('MainCtrl', function($scope) {
-	
-});
+.controller('MainCtrl', function() {
+
+})
+
+;

@@ -1,19 +1,5 @@
-<form name="newRecipe">
-
-<h1>{{ title }}</h1>
-<label for="">Title</label>
-<input ng-model="formData.title" type="text" required>
-<label for="">Description</label>
-<input ng-model="formData.description" type="text"required>
-<label for="">Cooking time</label>
-<input ng-model="formData.cookingTime" type="number" required>
-<label for="">Ingredients</label>
-<input ng-model="auxIngredient" type="text"><button ng-click="addIngredient()">+</button>
-<ul>
-	<li ng-repeat="i in formData.ingredients">
-		{{ i }}
-	</li>
-</ul>
-
-<button ng-click="send()" ng-disabled="!newRecipe.$valid">Send</button>
-</form>
+<div class="row">
+	<div class="col-md-12 col-lg-12">
+		<a href="#/recipes/new">Afegir recepta</a>
+	</div>
+</div>
