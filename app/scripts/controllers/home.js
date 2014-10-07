@@ -7,19 +7,16 @@ angular.module('cursAngularUpcApp.home',[])
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/home.html',
-			controller: 'MainCtrl'
+			controller: 'HomeCtrl'
 		})
 		.otherwise({
 			redirectTo: '/'
 		});
 })
 
-.run(function(){
-	console.log('cursAngularUpcApp.home loaded....');
-})
+.controller('HomeCtrl', function($scope) {
 
-.controller('MainCtrl', function() {
-
+	$scope.now = new Date();
 })
 
 ;
