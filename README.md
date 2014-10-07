@@ -29,8 +29,10 @@ o per separat
 grunt build # compila l'aplicació
 ```
 ```
-grunt test # 
+grunt test # executa tests unitaris
 ```
+
+Per recarregar l'aplicació quan salvem canvis usem
 ```
 grunt serve # compila l'aplicació i inicia servidor web a http://127.0.0.1:9000
 ```
