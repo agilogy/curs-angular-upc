@@ -1,6 +1,7 @@
 ###Links
 
  + [Backlog del projecte](https://trello.com/b/DvtFODxY/angular-upc-2014)
+ + [Setup projecte amb Yeoman](https://github.com/agilogy/curs-angular-upc/blob/master/setup.md)
  + [Documentació d'Angular](https://docs.angularjs.org/api)
  + [Explorador API de receptes](http://recipesapi.herokuapp.com/explorer)
 
