@@ -4,7 +4,7 @@
  + [Setup projecte amb Yeoman](https://github.com/agilogy/curs-angular-upc/blob/master/setup.md)
  + [Documentació d'Angular](https://docs.angularjs.org/api)
  + [Explorador API de receptes](http://recipesapi.herokuapp.com/explorer)
-
+ + [Curs survey](http://goo.gl/forms/opnrNXbJ2P)
 ### Dependencies
  
  + [npm](https://npmjs.org/)
