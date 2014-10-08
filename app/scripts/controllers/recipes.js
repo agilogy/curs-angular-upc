@@ -20,11 +20,21 @@ angular.module('cursAngularUpcApp.recipes', [
 
 .controller('RecipesCtrl', function($scope, RestService) {
 
-	RestService.getAll()
+	var _getRecipes = function(){
+		RestService.getAll()
 		.then(function(response){
 			$scope.recipes = response.data;
 		});
+	};
 
+	$scope.deleteRecipe = function(rId){
+		RestService.deleteRecipe(rId)
+			.then(_getRecipes, function(errorResp){
+				console.error(errorResp);
+			});		
+	};
+
+	_getRecipes();
 })
 
 .controller('RecipeFormCtrl', function($scope, $location, RestService) {

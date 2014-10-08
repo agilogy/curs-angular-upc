@@ -6,6 +6,7 @@
           <th>#</th>
           <th>Nom</th>
           <th><span class="pull-right">Temps de preparació</span></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +14,7 @@
           <td>{{recipe.id}}</td>
           <td>{{recipe.title}}</td>
           <td><span class="pull-right">{{recipe.cookingTime}}</span></td>
+          <td><button type="button" class="close" ng-click="deleteRecipe(recipe.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button></td>
         </tr>
       </tbody>
     </table>

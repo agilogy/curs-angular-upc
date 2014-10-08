@@ -13,6 +13,10 @@ angular.module('cursAngularUpcApp.rest',[])
 	this.addRecipe = function(recipe){
 		return $http.post(apiUrl + '/recipes', recipe);
 	};
+
+	this.deleteRecipe = function(recipeId){
+		return $http.delete(apiUrl + '/recipes/' + recipeId);
+	}
 })
 
 ;
