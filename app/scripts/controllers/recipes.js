@@ -2,7 +2,8 @@
 
 angular.module('cursAngularUpcApp.recipes', [
 	'ngRoute',
-	'cursAngularUpcApp.rest'
+	'cursAngularUpcApp.rest',
+	'cursAngularUpcApp.directives.cookingTime'
 ])
 
 .config(function($routeProvider) {

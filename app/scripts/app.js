@@ -2,7 +2,8 @@
 
 angular.module('cursAngularUpcApp', [
 	'cursAngularUpcApp.recipes',
-	'cursAngularUpcApp.home'
+	'cursAngularUpcApp.home',
+	'cursAngularUpcApp.graph'
 ])
 
 .config(function(/*Only providers*/) {
