@@ -15,6 +15,10 @@ angular.module('cursAngularUpcApp.recipes', [
 	.when('/recipes/new', {
 		templateUrl: 'views/recipe-form.html',
 		controller: 'RecipeFormCtrl'
+	})
+	.when('/recipes/:recipeId/edit', {
+		templateUrl: 'views/recipe-form.html',
+		controller: 'RecipeEditCtrl'
 	});
 })
 
@@ -31,10 +35,37 @@ angular.module('cursAngularUpcApp.recipes', [
 		RestService.deleteRecipe(rId)
 			.then(_getRecipes, function(errorResp){
 				console.error(errorResp);
-			});		
+			});
 	};
 
 	_getRecipes();
+})
+
+.controller('RecipeEditCtrl', function($scope, $location, $routeParams, RestService) {
+
+	RestService.getById($routeParams.recipeId)
+		.then(function(response){
+			$scope.formData = response.data;
+		});
+
+	$scope.send = function(){
+		RestService.updateRecipe($scope.formData)
+			.then(function(resp){
+				if (resp.status === 200){
+					$location.path('/recipes');
+				}
+			}, function(resp){
+				console.error(resp);
+			});
+	};
+
+	$scope.addIngredient = function(){
+		$scope.formData.ingredients
+			.push($scope.auxIngredient);
+
+		$scope.auxIngredient = '';
+	};
+
 })
 
 .controller('RecipeFormCtrl', function($scope, $location, RestService) {
@@ -52,11 +83,11 @@ angular.module('cursAngularUpcApp.recipes', [
 	};
 
 	$scope.send = function(){
-		console.log($scope.formData);
 		RestService.addRecipe($scope.formData)
 			.then(function(resp){
-				if (resp.status === 200)
+				if (resp.status === 200){
 					$location.path('/recipes');
+				}
 			}, function(resp){
 				console.error(resp);
 			});

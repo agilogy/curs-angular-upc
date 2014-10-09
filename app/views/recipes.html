@@ -12,7 +12,7 @@
       <tbody>
         <tr ng-repeat="recipe in recipes">
           <td>{{recipe.id}}</td>
-          <td>{{recipe.title}}</td>
+          <td><a ng-href="#/recipes/{{recipe.id}}/edit">{{recipe.title}}</a></td>
           <td><span class="pull-right">{{recipe.cookingTime}}</span></td>
           <td><button type="button" class="close" ng-click="deleteRecipe(recipe.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button></td>
         </tr>

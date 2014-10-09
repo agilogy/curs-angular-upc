@@ -10,13 +10,21 @@ angular.module('cursAngularUpcApp.rest',[])
 		return $http.get(apiUrl + '/recipes');
 	};
 
+	this.getById = function(recipeId){
+		return $http.get(apiUrl + '/recipes/' + recipeId);
+	};
+
 	this.addRecipe = function(recipe){
 		return $http.post(apiUrl + '/recipes', recipe);
 	};
 
+	this.updateRecipe = function(recipe){
+		return $http.put(apiUrl + '/recipes/' + recipe.id, recipe);
+	};
+
 	this.deleteRecipe = function(recipeId){
 		return $http.delete(apiUrl + '/recipes/' + recipeId);
-	}
+	};
 })
 
 ;
