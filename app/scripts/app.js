@@ -3,6 +3,7 @@
 angular.module('cursAngularUpcApp', [
 	'cursAngularUpcApp.recipes',
 	'cursAngularUpcApp.home',
+	'cursAngularUpcApp.directives.navbar',
 	'cursAngularUpcApp.graph'
 ])
 
