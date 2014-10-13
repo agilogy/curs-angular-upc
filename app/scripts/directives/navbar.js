@@ -18,6 +18,23 @@ angular.module('cursAngularUpcApp.directives.navbar', [])
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function($scope, iElm, iAttrs, controller) {
 			
+			$scope.$watch(function(){
+				return $location.path();
+			}, function(newValue, oldValue){
+				var liElements = iElm[0].querySelectorAll('li');
+
+				angular.forEach(liElements, function(li){
+					var liElement = angular.element(li);
+					var href = angular.element(liElement.children()[0]).attr('ng-href');
+					var sHref = href.substring(1);
+					if (sHref == newValue){
+						liElement.addClass('active');
+					} else {
+						liElement.removeClass('active');
+					}
+				});
+				console.log(newValue);
+			});
 		}
 	};
 });
