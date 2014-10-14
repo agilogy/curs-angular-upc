@@ -1,5 +1,9 @@
 <div class="row">
 	<div class="col-md-12 col-lg-12">
+  <div>
+    <input type="text" ng-model="query"></input>
+  </div>
+  {{ dataActual | date : 'dd-MM-yyyy'}}
 	<table class="table table-hover">
       <thead>
         <tr>
@@ -10,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="recipe in recipes">
+        <tr ng-repeat="recipe in recipes | filter: search | orderBy: order">
           <td>{{recipe.id}}</td>
           <td><a ng-href="#/recipes/{{recipe.id}}/edit">{{recipe.title}}</a></td>
           <td><span class="pull-right">{{recipe.cookingTime}}</span></td>
