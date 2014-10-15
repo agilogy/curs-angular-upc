@@ -17,11 +17,13 @@ angular.module('cursAngularUpcApp.graph', [
 
 .filter('graphData', function(){
 	return function(input){
-		if (!input) return [];
+		if (!input) {
+			return [];
+		}
 		var result = [];
 		console.log(input);
 		// transform input data to plotable data (use $scope.data as example)
-		return input;
+		return result;
 	};
 })
 

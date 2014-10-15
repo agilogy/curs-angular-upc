@@ -1,3 +1,4 @@
+/*jshint unused:false*/
 'use strict';
 
 angular.module('cursAngularUpcApp.recipes', [
@@ -46,7 +47,7 @@ angular.module('cursAngularUpcApp.recipes', [
 					.push($scope.auxIngredient);
 
 				$scope.auxIngredient = '';
-			};	
+			};
 		}
 	};
 })
@@ -70,8 +71,9 @@ angular.module('cursAngularUpcApp.recipes', [
 	$scope.dataActual = new Date();
 
 	$scope.search = function(item){
-		debugger
-		if (!$scope.query) return true;
+		if (!$scope.query){
+			return true;
+		}
 		
 		return item.title.indexOf($scope.query)===0;
 	};
