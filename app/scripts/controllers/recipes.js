@@ -23,6 +23,34 @@ angular.module('cursAngularUpcApp.recipes', [
 	});
 })
 
+.directive('ingredientList', function(){
+	// Runs during compile
+	return {
+		// name: '',
+		// priority: 1,
+		// terminal: true,
+		scope: {
+			ingredients: '='
+		}, // {} = isolate, true = child, false/undefined = no change
+		// controller: function($scope, $element, $attrs, $transclude) {},
+		//require: 'ng-model', // Array = multiple requires, ? = optional, ^ = check parent elements
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		// template: '',
+		templateUrl: '/views/ingredient-list.html',
+		replace: true,
+		// transclude: true,
+		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+		link: function($scope, iElm, iAttrs, controller) {
+			$scope.addIngredient = function(){
+				$scope.ingredients
+					.push($scope.auxIngredient);
+
+				$scope.auxIngredient = '';
+			};	
+		}
+	};
+})
+
 .controller('RecipesCtrl', function($scope, RestService) {
 
 	var _getRecipes = function(){
@@ -37,6 +65,15 @@ angular.module('cursAngularUpcApp.recipes', [
 			.then(_getRecipes, function(errorResp){
 				console.error(errorResp);
 			});
+	};
+
+	$scope.dataActual = new Date();
+
+	$scope.search = function(item){
+		debugger
+		if (!$scope.query) return true;
+		
+		return item.title.indexOf($scope.query)===0;
 	};
 
 	_getRecipes();
@@ -58,13 +95,6 @@ angular.module('cursAngularUpcApp.recipes', [
 			}, function(resp){
 				console.error(resp);
 			});
-	};
-
-	$scope.addIngredient = function(){
-		$scope.formData.ingredients
-			.push($scope.auxIngredient);
-
-		$scope.auxIngredient = '';
 	};
 
 })

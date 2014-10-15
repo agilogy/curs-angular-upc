@@ -17,17 +17,21 @@ angular.module('cursAngularUpcApp.graph', [
 
 .filter('graphData', function(){
 	return function(input){
+		if (!input) return [];
+		var result = [];
+		console.log(input);
 		// transform input data to plotable data (use $scope.data as example)
 		return input;
 	};
 })
 
-.controller('GraphCtrl', function(RestService, $scope) {
+.controller('GraphCtrl', function(RestService, $scope, $filter) {
 
 	var _getRecipes = function(){
 		RestService.getAll()
 		.then(function(response){
 			$scope.recipes = response.data;
+			$scope.mydata = $filter('graphData')($scope.recipes);
 		});
 	};
 

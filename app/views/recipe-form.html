@@ -9,21 +9,8 @@
         <textarea class="form-control" rows="3" ng-model="formData.description">
         </textarea>
     </div>
-    <div class="form-group">
-        <label for="ingredients">Ingredients</label>
-        <div class="input-group">
-            <input class="form-control" ng-model="auxIngredient" type="text"
-      pattern=".{3,}">
-            <div class="input-group-addon" ng-click="auxIngredient && addIngredient()">
-                <span class="glyphicon glyphicon-plus"</span>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <ul class="list-inline">
-            <li ng-repeat="i in formData.ingredients">{{ i }}</li>
-        </ul>
-    </div>
+    <ingredient-list ingredients="formData.ingredients"></ingredient-list>  
+    <ingredient-list ingredients="formData.ingredients"></ingredient-list>    
     <div class="form-group">
         <label for="cookingTime">Temps d'elaboració</label>
         <input class="form-control" type="number" min="1" ng-model="formData.cookingTime" required>
