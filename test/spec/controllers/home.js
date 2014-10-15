@@ -3,7 +3,7 @@
 describe('Controller: HomeCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('cursAngularUpcApp'));
+  beforeEach(module('cursAngularUpcApp.home'));
 
   var HomeCtrl,
     scope;
@@ -16,9 +16,8 @@ describe('Controller: HomeCtrl', function () {
     });
   }));
 
-  it('hauria de tenir una data actual', function () {
-    var baseTime = new Date();
-
-    expect(scope.now.getTime()).toEqual(baseTime.getTime());
+  it('hauria de tenir un nombre de sessió', function () {
+    
+    expect(scope.session).toBeGreaterThan(0);
   });
 });

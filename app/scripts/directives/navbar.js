@@ -1,3 +1,4 @@
+/*jshint unused:false*/
 'use strict';
 
 angular.module('cursAngularUpcApp.directives.navbar', [])
@@ -27,7 +28,7 @@ angular.module('cursAngularUpcApp.directives.navbar', [])
 					var liElement = angular.element(li);
 					var href = angular.element(liElement.children()[0]).attr('ng-href');
 					var sHref = href.substring(1);
-					if (sHref == newValue){
+					if (sHref === newValue){
 						liElement.addClass('active');
 					} else {
 						liElement.removeClass('active');

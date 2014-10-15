@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cursAngularUpcApp.home',[])
+angular.module('cursAngularUpcApp.home',['ngRoute'])
 
 .config(function($routeProvider) {
 
@@ -17,6 +17,8 @@ angular.module('cursAngularUpcApp.home',[])
 .controller('HomeCtrl', function($scope) {
 
 	$scope.now = new Date();
+
+	$scope.session = 4;
 })
 
 ;
