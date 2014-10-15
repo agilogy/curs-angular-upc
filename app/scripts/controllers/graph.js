@@ -18,12 +18,45 @@ angular.module('cursAngularUpcApp.graph', [
 .filter('graphData', function(){
 	return function(input){
 		if (!input) {
-			return [];
-		}
-		var result = [];
-		console.log(input);
-		// transform input data to plotable data (use $scope.data as example)
-		return result;
+            return [];
+        }
+        var result = [{
+                x: 'Cap',
+                y: 0
+            }, {
+                x: 'Un',
+                y: 0
+            }, {
+                x: 'Dos',
+                y: 0
+            }, {
+                x: 'Tres',
+                y: 0
+            }, {
+                x: 'Quatre',
+                y: 0
+            }, {
+                x: 'Cinc',
+                y: 0
+            }, {
+                x: 'Sis',
+                y: 0
+            }, {
+                x: 'Set o més',
+                y: 0
+            }];
+
+        angular.forEach(input, function(value){
+            var numIngredients = 0;
+            if (value.ingredients.length >= 7) {
+                numIngredients = 7;
+            } else { 
+                numIngredients = value.ingredients.length;
+            }
+            result[value.ingredients.length].y++;
+        });
+        
+        return result;
 	};
 })
 
