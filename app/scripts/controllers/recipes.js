@@ -75,7 +75,7 @@ angular.module('cursAngularUpcApp.recipes', [
 			return true;
 		}
 		
-		return item.title.indexOf($scope.query)===0;
+		return item.title.toLowerCase().indexOf($scope.query.toLowerCase())===0;
 	};
 
 	_getRecipes();
